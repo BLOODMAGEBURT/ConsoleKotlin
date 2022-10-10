@@ -3,10 +3,12 @@ package cor
 import kotlin.coroutines.*
 
 fun main() {
-    createCor()
+    createAndStartCor()
+    receiverCor()
 }
 
-fun createCor() {
+
+fun createAndStartCor() {
     /**
      * 创建协程
      */
@@ -39,7 +41,37 @@ fun createCor() {
         }
     })
 
+    suspend { 6 }.startCoroutine(Continuation(EmptyCoroutineContext) {
+        println(it.getOrNull())
+    })
 
 }
 
+fun receiverCor() {
+    val produce = ProducerScope<Int>()
+    launchCoroutine(produce) {
+        produce(2)
+    }
+
+}
+
+
+fun <R, T> launchCoroutine(receiver: R, block: suspend R.() -> T) {
+
+    block.startCoroutine(receiver, object : Continuation<T> {
+        override val context: CoroutineContext
+            get() = EmptyCoroutineContext
+
+        override fun resumeWith(result: Result<T>) {
+            println("coroutine end $result")
+        }
+    })
+}
+
+class ProducerScope<T> {
+    suspend fun produce(value: T) {
+        println("produce value now: $value")
+    }
+
+}
 
