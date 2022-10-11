@@ -5,11 +5,11 @@ import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 
 suspend fun main() {
-    println("start")
-    repeat(10) {
+    repeat(3) {
+        println("start")
         println(test2())
+        println("end")
     }
-    println("end")
 }
 
 
