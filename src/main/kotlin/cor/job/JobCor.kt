@@ -42,10 +42,28 @@ fun launch(
 fun main() {
     println("start ${Runtime.getRuntime().availableProcessors()}")
 
-    test1()
-
+    runBlocking {
+        test2()
+    }
 
     println("end")
+
+}
+
+suspend fun test2() {
+
+    val seq = sequence {
+        yield(1L)
+        var next = 1L
+        var current = 1L
+        while (true) {
+            yield(next)
+            next += current
+            current = next - current
+        }
+    }
+
+    seq.take(10).forEach(::println)
 
 }
 
