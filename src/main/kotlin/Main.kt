@@ -10,7 +10,7 @@ fun main(args: Array<String>) {
 
     // Try adding program arguments via Run/Debug configuration.
     // Learn more about running applications: https://www.jetbrains.com/help/idea/running-applications.html.
-    println("Program arguments: ${args.joinToString()}")
+//    println("Program arguments: ${args.joinToString()}")
 //
 //
 //    val listOf = listOf(2, 34, 65, 766)
@@ -48,7 +48,13 @@ fun main(args: Array<String>) {
 //    println(df2.format(812.115))
 
 
-    println("result: ${reMatch("sdsdfsdfq_")}")
+    val time = System.currentTimeMillis()
+
+    val month = time / (1000*60*60*24*30L)
+    val month1 = time / 30L
+    println("time: $time month: $month  $month1")
+
+    println("${(2023-1970)*12}")
 
 }
 
