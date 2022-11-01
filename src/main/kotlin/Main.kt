@@ -56,6 +56,7 @@ fun main(args: Array<String>) {
 
     println("${(2023-1970)*12}")
 
+    println(1/2)
 }
 
 fun generateMailCode(): String {
