@@ -3,7 +3,28 @@ package algo
 fun main() {
 
 //    println(binarySearch(listOf(1, 3, 5, 7, 9), 3))
-    println(binarySearchRecursion(listOf(1, 3, 4, 7, 9, 35), 3))
+//    println(binarySearchRecursion(listOf(1, 3, 4, 7, 9, 35), 3))
+
+
+
+    testSort()
+
+}
+
+fun testSort() {
+
+    val list = mutableListOf(2, 3, 6, 1, 6, 12, 4)
+
+    list.sort()
+    println(list)
+
+
+    val list2 = listOf(2, 3, 6, 1, 6, 12, 4)
+
+    val list3 = list2.sorted()
+    println(list2)
+    println("list3 : $list3")
+
 }
 
 /**
@@ -53,5 +74,20 @@ fun binarySearchRecursion(values: List<Int>, target: Int): Int {
     } else {
         1
     }
+}
 
+
+fun fax(list: List<Int>): List<Int> {
+
+    var list2 = list.toList()
+
+    list.forEach { item ->
+
+        list2 = list2.map { it * item }
+
+        println("it $list2")
+
+    }
+
+    return list2
 }
