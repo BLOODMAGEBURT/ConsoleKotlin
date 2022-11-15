@@ -36,6 +36,7 @@ fun findEmpire(allFriends: ArrayBlockingQueue<Friend>): Friend? {
 
     val searched = mutableSetOf<Friend>()
 
+
     while (allFriends.iterator().hasNext()) {
         val f = allFriends.poll()
         if (f in searched) continue
@@ -47,6 +48,26 @@ fun findEmpire(allFriends: ArrayBlockingQueue<Friend>): Friend? {
         searched.add(f)
     }
     return null
+}
+
+
+fun findEmpirePath(friends: ArrayBlockingQueue<Friend>): List<Friend> {
+
+
+    val searched = mutableSetOf<Friend>()
+
+    while (friends.iterator().hasNext()) {
+        val f = friends.poll()
+        if (f in searched) continue
+        if (f.dealer) {
+            return emptyList()
+        } else {
+            friends.addAll(f.friends)
+        }
+        searched.add(f)
+    }
+
+    return emptyList()
 }
 
 
