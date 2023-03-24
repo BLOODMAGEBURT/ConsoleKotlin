@@ -1,3 +1,7 @@
+import kotlinx.datetime.LocalDate
+import kotlinx.datetime.LocalDateTime
+import kotlinx.datetime.LocalTime
+
 fun main() {
     val regex = """(.{2,}\.){2,}.*""".toRegex()
 
@@ -42,4 +46,30 @@ fun main() {
 
 
     println("0.00".toDouble() == 0.0)
+
+    LocalDateTime.parse("2021-01-01T13:40:50").let {
+        println(it)
+    }
+
+    LocalDate.parse("2021-01-01").let {
+        println(it)
+    }
+
+    LocalDate(2021, 2, 10).let {
+        println(it)
+    }
+
+    LocalTime(13, 40, 50).let {
+        println(it)
+    }
+    LocalTime(2, 40).let {
+        println(it)
+    }
+
+    LocalTime.parse("20:02").let {
+        println(it)
+    }
+
+    val (year, month, day) = readln().split("-").map { it.toInt() }
+    println("year = $year, month = $month, day = $day")
 }
