@@ -1,3 +1,9 @@
+import cor.pro.await
+import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.joinAll
+import kotlinx.coroutines.runBlocking
+
 sealed class NoticeTypeModel(open val msgId: Int)
 
 data class Type10Model(
@@ -21,4 +27,12 @@ data class Type6Model(
 
 fun main() {
     println((Type10Model(2, "hao", "sdfsf", "desdoisdf") as NoticeTypeModel).msgId)
+
+
+
+
 }
+
+
+
+

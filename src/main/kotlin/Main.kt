@@ -48,15 +48,19 @@ fun main(args: Array<String>) {
 //    println(df2.format(812.115))
 
 
-    val time = System.currentTimeMillis()
+//    val time = System.currentTimeMillis()
+//
+//    val month = time / (1000*60*60*24*30L)
+//    val month1 = time / 30L
+//    println("time: $time month: $month  $month1")
+//
+//    println("${(2023-1970)*12}")
+//
+//    println(1/2)
 
-    val month = time / (1000*60*60*24*30L)
-    val month1 = time / 30L
-    println("time: $time month: $month  $month1")
 
-    println("${(2023-1970)*12}")
+    println("0.000".toDouble() == 0.0)
 
-    println(1/2)
 }
 
 fun generateMailCode(): String {
@@ -71,7 +75,8 @@ fun generateMailCode(): String {
 
 fun reMatch(str: String): Boolean {
 
-    val regexRule = "^(?![a-z]+$)(?![A-Z]+$)(?![\\W_]+$)(?![\\d]+$)[a-zA-Z\\d_\\W]{6,20}$"
+//    val regexRule = "^(?![a-z]+$)(?![A-Z]+$)(?![\\W_]+$)(?![\\d]+$)[a-zA-Z\\d_\\W]{6,20}$"
+    val regexRule = "^[1-9]\\d*$"
 
 //    Pattern.matches(regexRule, str)
 

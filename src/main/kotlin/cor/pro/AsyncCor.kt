@@ -9,13 +9,13 @@ fun main() {
 
 interface AsyncScope
 
-fun async(
-    coroutineContext: CoroutineContext = EmptyCoroutineContext,
-    block: suspend AsyncScope.() -> Unit
-) {
-    val completion = AsyncCoroutine(coroutineContext)
-    block.startCoroutine(completion, completion)
-}
+//fun async(
+//    coroutineContext: CoroutineContext = EmptyCoroutineContext,
+//    block: suspend AsyncScope.() -> Unit
+//) {
+//    val completion = AsyncCoroutine(coroutineContext)
+//    block.startCoroutine(completion, completion)
+//}
 
 class AsyncCoroutine(override val context: CoroutineContext = EmptyCoroutineContext) : Continuation<Unit>, AsyncScope {
     override fun resumeWith(result: Result<Unit>) {
